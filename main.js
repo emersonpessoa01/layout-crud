@@ -77,16 +77,51 @@ const saveAluno = () => {
 })
 */
 
+const celular = document.querySelector("#celular");
+
+celular.addEventListener("keyup", (event) => {
+  let start = celular.selectionStart; //initial cursor position
+  let end = celular.selectionEnd; //final cursor position
+  //if the start and end positions of the cursor are the same, it means that there is no selection range
+  if (start == end) {
+    //this conditional prevents the function call when the user makes a selection range in the input EX:. keys (Ctrl + A)
+    formMask("__ _____-____", "_", event, start);
+  }
+});
+
+function formMask(mask, char, event, cursor) {
+  const vetMask = mask.split(""); //transform mask into vector to use specific functions, like filter()
+  const onlyNumbers = celular.value
+    .split("")
+    .filter((value) => !isNaN(value) && value != " ");
+  const key = event.keyCode || event.which;
+  const backspaceAndArrowKeys = [8, 37, 38, 39, 40]; //code backspace and arrow keys
+  const clickedOnTheBackspaceOrArrowsKeys =
+    backspaceAndArrowKeys.indexOf(key) >= 0;
+  const charNoMod = [".", "-"]; //characters that do not change
+  const cursorIsCloseToCharNoMod = charNoMod.indexOf(vetMask[cursor]) >= 0;
+
+  onlyNumbers.forEach((value) =>
+    vetMask.splice(vetMask.indexOf(char), 1, value)
+  ); //change '#' to numbers
+
+  celular.value = vetMask.join("");
+
+  if (!clickedOnTheBackspaceOrArrowsKeys && cursorIsCloseToCharNoMod) {
+    //increment the cursor if it is close to characters that do not change
+    celular.setSelectionRange(cursor + 1, cursor + 1);
+  } else {
+    celular.setSelectionRange(cursor, cursor);
+  }
+}
+
 const createRow = ({ nome, number, celular, dataNascimento }, index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
         <td>${nome}</td>
         <td>${number}</td>
-        <td>${celular.replace(/^(\d{2})(\d{5})(\d{4})/,"($1) $2-$3")}</td>
-        <td>${dataNascimento
-          .split("-")
-          .reverse()
-          .join("/")}</td>
+        <td>${celular.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")}</td>
+        <td>${dataNascimento.split("-").reverse().join("/")}</td>
         <td>
             <button type="button" class="button green" id="edit-${index}">Editar</button>
             <button type="button" class="button red" id="delete-${index}" >Excluir</button>

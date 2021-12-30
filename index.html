@@ -59,7 +59,7 @@
               required
             />
             <input
-              type="text"
+              type="tel"
               id="celular"
               class="modal-field"
               placeholder="Telefone"
@@ -84,7 +84,9 @@
       Todos os direitos reservados. Emerson Pessoa&copy;
       <script>
         document.write(new Date().getFullYear());
+        new FormMask(document.querySelector("#celular"), "(__)_____-____", "_", ["(", ")", "-"]);
       </script>
+    </script>
     </footer>
   </body>
 </html>
