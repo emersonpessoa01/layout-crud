@@ -82,7 +82,7 @@ const createRow = ({ nome, number, celular, dataNascimento }, index) => {
   newRow.innerHTML = `
         <td>${nome}</td>
         <td>${number}</td>
-        <td>${celular}</td>
+        <td>${celular.replace(/^(\d{2})(\d{5})(\d{4})/,"($1) $2-$3")}</td>
         <td>${dataNascimento
           .split("-")
           .reverse()
