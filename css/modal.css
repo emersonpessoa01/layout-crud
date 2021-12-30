@@ -33,6 +33,7 @@
   height: 60px;
   line-height: 60px;
   font-size: 1rem;
+  box-shadow: 1px 1px 5px #00000080;
 }
 
 .modal-close {
@@ -44,6 +45,7 @@
   text-align: center;
   user-select: none;
   cursor: pointer;
+  border: 1px solid #fff;
 }
 
 .modal-close:hover {
@@ -67,6 +69,7 @@
   box-shadow: 0 0 2px black;
   padding: 0 10px;
   font-size: 1rem;
+  border-radius:4px;
 }
 
 .modal-field:focus {
@@ -80,13 +83,13 @@
   padding: 0 20px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 710px) {
   .modal {
     top: 100%;
     transition: all 1s ease;
   }
   .modal.active {
-    top: 0;
+    top: 15%;
   }
   .modal-content {
     margin: 0;

@@ -51,7 +51,7 @@ const saveAluno = () => {
   if (isValidFields()) {
     const aluno = {
       nome: document.getElementById("nome").value,
-      email: document.getElementById("email").value,
+      number: document.getElementById("number").value,
       celular: document.getElementById("celular").value,
       dataNascimento: document.getElementById("dataNascimento").value,
     };
@@ -68,13 +68,25 @@ const saveAluno = () => {
   }
 };
 
-const createRow = (aluno, index) => {
+//configuração de data
+/*.toLocaleString("pt-br", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+})
+*/
+
+const createRow = ({ nome, number, celular, dataNascimento }, index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
-        <td>${aluno.nome}</td>
-        <td>${aluno.email}</td>
-        <td>${aluno.celular}</td>
-        <td>${aluno.dataNascimento}</td>
+        <td>${nome}</td>
+        <td>${number}</td>
+        <td>${celular}</td>
+        <td>${dataNascimento
+          .split("-")
+          .reverse()
+          .join("/")}</td>
         <td>
             <button type="button" class="button green" id="edit-${index}">Editar</button>
             <button type="button" class="button red" id="delete-${index}" >Excluir</button>
@@ -96,7 +108,7 @@ const updateTable = () => {
 
 const fillFields = (aluno) => {
   document.getElementById("nome").value = aluno.nome;
-  document.getElementById("email").value = aluno.email;
+  document.getElementById("number").value = aluno.number;
   document.getElementById("celular").value = aluno.celular;
   document.getElementById("dataNascimento").value = aluno.dataNascimento;
   document.getElementById("nome").dataset.index = aluno.index;
