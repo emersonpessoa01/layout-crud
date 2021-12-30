@@ -76,7 +76,7 @@ const saveAluno = () => {
   day: "numeric",
 })
 */
-
+//Adicionar máscara no input
 const celular = document.querySelector("#celular");
 
 celular.addEventListener("keyup", (event) => {
@@ -114,11 +114,18 @@ function formMask(mask, char, event, cursor) {
     celular.setSelectionRange(cursor, cursor);
   }
 }
+// converter a 1a letra de cada palavra em maiúscula
+const capitalizeFirst = (str) => {
+  const subst = str.toLowerCase().replace(/(?:^|\s)\S/g, function (a) {
+    return a.toUpperCase();
+  });
+  return subst;
+};
 
 const createRow = ({ nome, number, celular, dataNascimento }, index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
-        <td>${nome}</td>
+        <td>${capitalizeFirst(nome)}</td>
         <td>${number}</td>
         <td>${celular.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")}</td>
         <td>${dataNascimento.split("-").reverse().join("/")}</td>
