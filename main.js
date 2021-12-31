@@ -60,6 +60,7 @@ const saveAluno = () => {
       createAluno(aluno);
       updateTable();
       closeModal();
+      alert("Cadastrado realizado com sucesso!");
     } else {
       updateAluno(index, aluno);
       updateTable();
@@ -122,12 +123,11 @@ const capitalizeFirst = (str) => {
   return subst;
 };
 
-
 const createRow = ({ nome, number, celular, dataNascimento }, index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
         <td>${capitalizeFirst(nome)}</td>
-        <td>${(Intl.NumberFormat("pt-br").format(number))}</td>
+        <td>${Intl.NumberFormat("pt-br").format(number)}</td>
         <td>${celular.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")}</td>
         <td>${dataNascimento.split("-").reverse().join("/")}</td>
         <td>
