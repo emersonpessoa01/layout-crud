@@ -43,9 +43,11 @@
             <span class="modal-close" id="modalClose">&#10006;</span>
           </header>
           <form id="form" class="modal-form">
+            <!--criado um atributo personalizado para diferenciar saveAluno e edit usado data-index="new"-->
             <input
+              data-index="new"
               type="text"
-              id="nome"
+              id="name"
               data-index="new"
               class="modal-field"
               placeholder="Nome"
@@ -68,10 +70,10 @@
             />
             <input
               type="date"
-              id="dataNascimento"
+              id="dateBirth"
               class="modal-field"
               placeholder="Data de Nascimento"
-              required
+              required 
             />
           </form>
           <footer class="modal-footer">
