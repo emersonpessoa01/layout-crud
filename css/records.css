@@ -1,58 +1,69 @@
 td {
-  text-align: center;
+    text-align: center;
 }
 .records {
-  width: 100%;
-  user-select: none;
-  text-align: left;
+    width: 100%;
+    user-select: none;
+    text-align: left;
 }
 
 .records th {
-  height: 50px;
-  background-color: #ebebeb;
-  /* padding-left: 20px; */
-  text-align: center;
-  font-size: 1.2rem;
-  font-family: Segoe UI, SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 50px;
+    background-color: #ebebeb;
+    /* padding-left: 20px; */
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: Segoe UI, SegoeUI, "Helvetica Neue", Helvetica, Arial,
+        sans-serif;
 }
 .records td {
-  height: 50px;
-  padding-left: 20px;
-  font-family: Segoe UI, SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 50px;
+    padding-left: 20px;
+    font-family: Segoe UI, SegoeUI, "Helvetica Neue", Helvetica, Arial,
+        sans-serif;
 }
 
 .records th:last-child,
 .records td:last-child {
-  padding: 0;
-  min-width: 140px;
-  text-align: center;
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
 }
 
 .records tr:hover {
-  background-color: var(--secundary-color);
+    background-color: var(--secundary-color);
 }
 
-@media (max-width: 480px) {
-  .records {
-    border-spacing: 5px;
-  }
-  .records thead {
-    display: none;
-  }
-  .records tr {
-    box-shadow: 0 1px 3px var(--shadow-color);
-  }
-  .records td:not(:first-child) {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-  }
+/* @media (max-width: 480px) { */
+@media (max-width: 680px) {
+    /*add*/
+    .header-title {
+        font-size: 15px;
+    }
+    .button {
+        font-size: 75%;
+    }
+    .records {
+        border-spacing: 5px;
+        margin-top: 100px; /*add*/
+    }
+    .records thead {
+        display: none;
+    }
+    .records tr {
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+    .records td:not(:first-child) {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
 
-  .records td {
-    margin: 10px 0;
-  }
+    .records td {
+        margin: 10px 0;
+    }
 
-  .records tr:hover {
-    background-color: inherit;
-  }
+    .records tr:hover {
+        background-color: inherit;
+    }
 }
