@@ -17,7 +17,7 @@
 .modal-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 50%;
   margin: 15vh auto;
   padding-bottom: 20px;
@@ -85,11 +85,12 @@
 
 @media (max-width: 710px) {
   .modal {
-    top: 100%;
-    transition: all 1s ease;
+    top: 100%; /*modal está deslocado 100% abaixo da página*/
+    transition: all 1s ease; /* transição da página de cima para baixo*/
   }
   .modal.active {
-    top: 15%;
+    /* top: 15%;*/ 
+    top: 0; /*add - faz o deslocamento pra cima ao ínicio da página*/ 
   }
   .modal-content {
     margin: 0;

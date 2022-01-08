@@ -111,7 +111,7 @@ celular.addEventListener("keyup", (event) => {
   let start = celular.selectionStart; 
   let end = celular.selectionEnd; 
   if (start == end) {
-    formMask("__ _____-____", "_", event, start);
+    formMask("_______-____", "_", event, start);
   }
 });
 
@@ -155,10 +155,11 @@ const row = ({ nome, notaFinal, celular, dataNascimento }, index) => {
     const newRow = document.createElement("tr"); //criando uma tr vazia
     //campos do array aluno de saveAluno()
     //preenche com newRow
+    //<td>${celular.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")}</td>
     newRow.innerHTML = `
         <td>${capitalizeFirst(nome)}</td>
         <td>${Intl.NumberFormat("pt-br").format(notaFinal)}</td>
-        <td>${celular.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")}</td>
+        <td>${celular}</td>
         <td>${dataNascimento.split("-").reverse().join("/")}</td>
         <td>
             <button type="button" class="button green" id="edit-${index}">Editar</button>
