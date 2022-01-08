@@ -22,9 +22,13 @@ body {
 
 header {
   background: linear-gradient(to right, #3F2D59,#6610f2, #3F2D59);
-  height: 100px;
+  /* height: 100px; */
+  height: 75px;
   text-align: center;
-  line-height: 92px;
+  /* line-height: 92px; */
+  display: flex; /*add*/
+  align-items: center;/*add*/
+  justify-content:center;/*add*/
   /*box-shadow: 0 1px 2px var(--shadow-color);*/
   text-shadow: 0 2px #5bb5cc;
 }
